@@ -125,19 +125,19 @@ class Color:
 
     def __add__(self, other):  # +
         self.check_type(other)
-        self.red = self.red + other.red if self.red + other.red <= 255 else 255
-        self.green = self.green + other.green if self.green + other.green <= 255 else 255
-        self.blue = self.blue + other.blue if self.blue + other.blue <= 255 else 255
-        return Color(self.red, self.green, self.blue)
+        red = self.red + other.red if self.red + other.red <= 255 else 255
+        green = self.green + other.green if self.green + other.green <= 255 else 255
+        blue = self.blue + other.blue if self.blue + other.blue <= 255 else 255
+        return Color(red, green, blue)
 
     def __sub__(self, other):  # -
         self.check_type(other)
         print(self.red)
         print(other.red)
-        self.red = self.red - other.red if self.red - other.red >= 0 else 0
-        self.green = self.green - other.green if self.green - other.green >= 0 else 0
-        self.blue = self.blue - other.blue if self.blue - other.blue >= 0 else 0
-        return Color(self.red, self.green, self.blue)
+        red = self.red - other.red if self.red - other.red >= 0 else 0
+        green = self.green - other.green if self.green - other.green >= 0 else 0
+        blue = self.blue - other.blue if self.blue - other.blue >= 0 else 0
+        return Color(red, green, blue)
 
     @staticmethod
     def check_value(value):
@@ -151,8 +151,8 @@ class Color:
             raise TypeError(f'Your object type need to be {self.__class__}, but it is {type(other)}')
 
 
-color1 = Color(12, 128, 0)
-color2 = Color(123, 123, 123)
+color1 = Color(20, 128, 0)
+color2 = Color(20, 128, 0)
 colorAdd = color1 + color2
 print(colorAdd)
 
