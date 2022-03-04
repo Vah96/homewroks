@@ -241,6 +241,8 @@ person3 = Person("Person3", 5678956789)
 
 class Bank:
 
+    __accounts: object
+
     def __init__(self, accounts):
         self.__accounts = accounts
 
@@ -270,7 +272,7 @@ class Bank:
         self.accounts[from_ssn][account_type].transfer_to(self.accounts[to_ssn][account_type], val)
 
     def get_full_balance(self, ssn):
-        return int(self.accounts[ssn]['current']) + int(self.accounts[ssn]['savings'])
+        return f"Full balance: {int(self.accounts[ssn]['current']) + int(self.accounts[ssn]['savings'])}$(USD)"
 
 
 lst = {
