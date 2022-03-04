@@ -280,6 +280,7 @@ lst = {
     hash(person2): {"savings": savingsAccount2, "current":  currentAccount2},
     hash(person3): {"savings": savingsAccount3, "current":  currentAccount3}
 }
+
 bank = Bank(lst)
 
 # check Credit functionality
@@ -321,5 +322,4 @@ print(bank.accounts[hash(person2)]['savings'])
 
 print(bank.get_full_balance(hash(person1)))
 
-
-
+print('text commit');
