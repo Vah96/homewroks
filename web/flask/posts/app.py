@@ -12,18 +12,6 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecret'
 
 
-# @app.route("/")
-# def home():
-#     return 'The value you set is'
-#
-#
-# @app.route("/set/<value>")
-# def set_session(value):
-#     session['value'] = value
-#     return f'The value you set is: {value}'
-
-
-
 def get_posts():
     path = os.path.join(app.root_path, 'data.json')
     with open(path) as jsonfile:
@@ -33,7 +21,7 @@ def get_posts():
 
 @app.route("/")
 def home():
-    return redirect(url_for('login'))
+    return redirect(url_for('posts'))
 
 
 @app.route("/posts")
@@ -46,7 +34,8 @@ def posts():
         for item in posts:
             if (q in item['title']) or (q in item['description']):
                 filtered_posts.append(item)
-        return render_template('posts.html', posts=filtered_posts, q=q, aaa=session['q'])
+        return render_template('posts.html', posts=filtered_posts, q=q)
+    session['q'] = None
     return render_template('posts.html', posts=posts)
 
 
