@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+<h1> Login</h1>
+<form method="post" action="{{url_for('login')}}">
+
+    <div>
+        <label for="email"> Email:</label>
+        <input id="email" name="email" type="email">
+    </div>
+
+    <div>
+        <label for="email"> Password:</label>
+        <input id="password" type="password" name="pass">
+    </div>
+
+    <div>
+        <input id="remember_me" type="checkbox" name="remember_me">
+        <label for="remember_me"> Remember me</label>
+    </div>
+
+    <input type="submit" value="Login"/>
+</form>
+<a href="#">Create account</a>
+</body>

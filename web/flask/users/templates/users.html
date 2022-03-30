@@ -1,0 +1,15 @@
+<html lang="en">
+<head>
+    <title>Users</title>
+</head>
+<body>
+<form action="{{ url_for('users')}}" method="get">
+    <input placeholder="Search users" name="q" type="text" value="{{q}}">
+    <input type="submit" value="Search">
+</form>
+{% for id, email in users.items() %}
+<p><a href="{{url_for('user', id=id )}}">{{email}}</a></p>
+{% else %}
+<p>There is no result</p>
+{% endfor %}
+</body>

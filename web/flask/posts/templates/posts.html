@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    <title>Posts</title>
+</head>
+<body>
+<form action="{{ url_for('posts')}}" method="get">
+    <input placeholder="Search users" name="q" type="text" value="{{q}}">
+    <input type="submit" value="Search">
+</form>
+<div>
+{% for item in posts %}
+    <h3>{{item['title']}}</h3>
+    <p>{{item['description']}}</p>
+    <a href="{{url_for('post', id=item['post_id'])}}">Read more</a>
+{% else %}
+    <p>No result</p>
+{% endfor %}
+</div>
+</body>
