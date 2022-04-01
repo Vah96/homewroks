@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+</head>
+<body>
+<section class="section">
+    <div class="profile">
+        <h1>Profile</h1>
+        <div class="profile_image">
+            <img src="{{url_for('static', filename='images/profile.png')}}"/>
+        </div>
+        <div>
+            <p>{{current_user['username']}} profile</p>
+        </div>
+
+        <a href="{{ url_for('logout')}}" class="logout"> Logout</a>
+    </div>
+</section>
+</body>

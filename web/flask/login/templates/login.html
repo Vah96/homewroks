@@ -1,27 +1,50 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
 </head>
 <body>
-<h1> Login</h1>
-<form method="post" action="{{url_for('login')}}">
-
+<section class="section">
     <div>
-        <label for="email"> Email:</label>
-        <input id="email" name="email" type="email">
-    </div>
+        <h1> Login</h1>
+        <form method="post" action="{{url_for('login')}}">
+            <div class="form-group">
+                <label for="username"> Username</label>
+                <input id="username" name="username" type="text" placeholder="Enter your username"
+                       value="{{login_data.get('username', '')}}">
+                {% if errors['username'] %}
+                </br>
+                    <span style="color:red;">{{errors['username']}}</span>
+                {% endif %}
+            </div>
 
-    <div>
-        <label for="email"> Password:</label>
-        <input id="password" type="password" name="pass">
-    </div>
+            <div class="form-group">
+                <label for="password"> Password</label>
+                <input id="password" type="password" name="password"  placeholder="Enter your password">
+                </br>
+                {% if errors['password'] %}
+                    <span style="color:red;">{{errors['password']}}</span>
+                {% endif %}
+            </div>
+            {% if errors['form_Error'] %}
+                </br>
+                <span style="color:red;">{{errors['form_Error']}}</span>
+            {% endif %}
 
-    <div>
-        <input id="remember_me" type="checkbox" name="remember_me">
-        <label for="remember_me"> Remember me</label>
-    </div>
+            <div class="remember_me">
+                <input id="remember_me" type="checkbox" name="remember_me">
+                <label for="remember_me">Remember me</label>
+            </div>
 
-    <input type="submit" value="Login"/>
-</form>
-<a href="#">Create account</a>
+            <div class="form-button">
+                <button type="submit">Login</button>
+            </div>
+
+            <div class="form-suggest-signup">
+                <p>Don’t have an account <a href="{{url_for('register')}}">Sign Up</a></p>
+            </div>
+        </form>
+    </div>
+</section>
 </body>

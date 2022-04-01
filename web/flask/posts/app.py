@@ -1,11 +1,6 @@
-from flask import Flask, session
-from flask import render_template
-from flask import redirect
-from flask import request
-from flask import url_for
+from flask import Flask, session, render_template, redirect, request, url_for
 import os
 import json
-
 
 app = Flask(__name__)
 
@@ -32,7 +27,7 @@ def posts():
         session['q'] = q
         filtered_posts = []
         for item in posts:
-            if (q in item['title']) or (q in item['description']):
+            if (q.lower() in item['title'].lower()) or (q.lower() in item['description'].lower()):
                 filtered_posts.append(item)
         return render_template('posts.html', posts=filtered_posts, q=q)
     session['q'] = None
